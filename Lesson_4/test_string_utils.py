@@ -114,15 +114,15 @@ def test_is_empty(string,result):
 
 @pytest.mark.parametrize('lst,joiner,result',[
    (["s","o","k"],",","s,o,k"),
-   ([1,2,3,4,5],None,"1,2,3,4,5"),
+   ([1,2,3,4,5],None,"1, 2, 3, 4, 5"),
    (["Раз","Два"],"-","Раз-Два"),
    ([],None,""),
    ([],",",""),
    ([],"торт","")
 ])
-def test_list_to_string(lst,joiner,result):
-   if joiner == None:
-      res = utils.list_to_string(lst)
+def test_list_to_string(lst, joiner, result):
+    if joiner is None:
+        res = utils.list_to_string(lst)
     else:
-      res = utils.list_to_string(lst,joiner)
+        res = utils.list_to_string(lst, joiner)
     assert res == result
